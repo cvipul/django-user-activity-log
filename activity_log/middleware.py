@@ -42,16 +42,21 @@ class ActivityLogMiddleware(MiddlewareMixin):
             request.method not in conf.METHODS,
             any(url in request.path for url in conf.EXCLUDE_URLS)
         ]
+        do_log = [
+            any(url in request.path for url in conf.INCLUDE_URLS
+        ]
 
         if conf.STATUSES:
             miss_log.append(response.status_code not in conf.STATUSES)
 
         if conf.EXCLUDE_STATUSES:
-            miss_log.append(response.status_code in conf.EXCLUDE_STATUSES)
+            miss_log.append(response.status_code in conf.EXCLUDE_STATUSES
 
         if any(miss_log):
             return
-
+        elif not any(do_log):
+            return
+        
         if getattr(request, 'user', None) and request.user.is_authenticated:
             user, user_id = request.user.get_username(), request.user.pk
         elif getattr(request, 'session', None):

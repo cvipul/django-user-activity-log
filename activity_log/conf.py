@@ -31,6 +31,9 @@ EXCLUDE_STATUSES = getattr(settings, 'ACTIVITYLOG_EXCLUDE_STATUSES', None)
 # URL substrings, which ignores
 EXCLUDE_URLS = getattr(settings, 'ACTIVITYLOG_EXCLUDE_URLS', ())
 
+# URL substrings, which is logged
+INCLUDE_URLS = getattr(settings, 'ACTIVITYLOG_INCLUDE_URLS', ())
+
 # Create DB automatically (for postgres, and may be mysql)
 AUTOCREATE_DB = getattr(settings, 'ACTIVITYLOG_AUTOCREATE_DB', False)
 

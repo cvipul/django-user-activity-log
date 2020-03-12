@@ -8,7 +8,7 @@ Features:
 
 Install:
 
-$ pip install django-user-activity-log
+$ pip install django-user-activity-log2
 
 settings.py:
 
@@ -46,8 +46,8 @@ ACTIVITYLOG_AUTOCREATE_DB = False
 
 # App settings
 
-# Log anonimus actions?
-ACTIVITYLOG_ANONIMOUS = True
+# Log anonymous actions?
+ACTIVITYLOG_ANONYMOUS = True
 
 # Update last activity datetime in user profile. Needs updates for user model.
 ACTIVITYLOG_LAST_ACTIVITY = True

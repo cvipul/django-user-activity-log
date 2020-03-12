@@ -43,14 +43,14 @@ class ActivityLogMiddleware(MiddlewareMixin):
             any(url in request.path for url in conf.EXCLUDE_URLS)
         ]
         do_log = [
-            any(url in request.path for url in conf.INCLUDE_URLS
+            any(url in request.path for url in conf.INCLUDE_URLS)
         ]
 
         if conf.STATUSES:
             miss_log.append(response.status_code not in conf.STATUSES)
 
         if conf.EXCLUDE_STATUSES:
-            miss_log.append(response.status_code in conf.EXCLUDE_STATUSES
+            miss_log.append(response.status_code in conf.EXCLUDE_STATUSES)
 
         if any(miss_log):
             return
